@@ -13,13 +13,16 @@
     <input type="text" th:field="*{taskInfo}" id="taskInfo" placeholder="Task Info">
     <br/>
     <label for="taskData">Task Data</label>
-    <input type="text" th:field="*{taskData}" id="taskData" placeholder="Task Data">
+    <input type="text" th:field="*{taskData}" id="taskData" placeholder="Data.Month.Year">
     <br/>
     <label for="timeStart">Time Start</label>
-    <input type="text" th:field="*{timeStart}" id="timeStart" placeholder="Time Start">
+    <input type="text" th:field="*{timeStart}" id="timeStart" placeholder="Hours:minutes">
     <br/>
     <label for="timeEnd">Time End</label>
-    <input type="text" th:field="*{timeEnd}" id="timeEnd" placeholder="Time End">
+    <input type="text" th:field="*{timeEnd}" id="timeEnd" placeholder="Hours:minutes">
+    <br/>
+    <label for="taskType">Task Type</label>
+    <input type="text" th:field="*{taskType}" id="taskType" placeholder="Day/Week/Month">
     <br/>
     <input type="submit" value="Create Task">
 </form>

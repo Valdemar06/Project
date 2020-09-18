@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -22,8 +23,8 @@ public class TaskController {
     }
 
     @GetMapping("/tasks")
-    public String findAll(Model model){
-        List<Task> tasks = taskService.findAll();
+    public String findAll(@RequestParam (required=false,name = "type")String type, Model model){
+        List<Task> tasks = taskService.findAllByTaskType(type);
         model.addAttribute("tasks", tasks);
         return "task-list";
     }
@@ -34,7 +35,7 @@ public class TaskController {
     @PostMapping("/task-create")
     public String createTask(Task task){
         taskService.saveTask(task);
-        return "redirect:/tasks";
+        return "redirect:/main";
     }
 
     @GetMapping("/task-update/{id}")
@@ -46,11 +47,11 @@ public class TaskController {
     @PostMapping("/task-update")
     public String updateTask(Task task){
         taskService.saveTask(task);
-        return "redirect:/tasks";
+        return "redirect:/main";
     }
     @GetMapping("/task-delete/{id}")
     public String deleteTask(@PathVariable("id") Long id){
         taskService.deleteTask(id);
-        return ("redirect:/tasks");
+        return ("redirect:/main");
     }
 }

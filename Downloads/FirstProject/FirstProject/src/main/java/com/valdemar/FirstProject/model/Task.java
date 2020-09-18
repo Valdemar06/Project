@@ -26,4 +26,7 @@ public class Task {
 
     @Column(name = "time_end")
     private  String timeEnd;
+
+    @Column(name = "task_type")
+    private String taskType;
 }
